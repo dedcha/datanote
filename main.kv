@@ -1,0 +1,82 @@
+
+<BoxL>:
+    myname: name
+    mytitle: title
+    myage: age
+    myincome: income
+    myexp: exp
+    padding: 10
+    orientation: 'vertical'
+    Label:
+        text: "Made by D3d_cha"
+    TextInput:
+        id: name
+        text: "Name"
+        multiline: False
+    TextInput:
+        id: title
+        text: "title"
+        multiline: False
+    TextInput:
+        id: age
+        text: "age"
+        multiline: False
+    TextInput:
+        id: income
+        text: "income"
+        multiline: False
+    TextInput:
+        id: exp
+        text: "exp"
+        multiline: False
+    Label:
+        id: Label1
+        text: "Message"
+        background_color: (1,1,0.5,0.1)
+    Button:
+        text: "Submit"
+        on_release:
+            root.insertIntoDatabase()
+    Button:
+        text: "View Entries"
+        on_release:
+            app.changeScreenToData()
+
+<BoxM>:
+    rowID: rowID
+    padding: 10
+    orientation: 'vertical'
+
+    RV:
+        id: rv1
+        viewclass: 'SelectableLabel'
+        SelectableRecycleBoxLayout:
+            default_size: None, dp(56)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+            orientation: 'vertical'
+            multiselect: True
+            touch_multiselect: True
+    
+    Button:
+        text: "<<<<Home"
+        size_hint: 1, 0.2
+        on_release:
+            app.changeScreenToHome()
+    
+    Button:
+        text: "Refresh"
+        size_hint: 1, 0.2
+        on_release:
+            root.refresh()
+    TextInput:
+        id: rowID
+        size_hint: 1, 0.2
+        text: "Enter row ID"
+        multiline: False
+    Button:
+        text: "Delete Row"
+        size_hint: 1, 0.2
+        on_release:
+            root.deleteRow()
